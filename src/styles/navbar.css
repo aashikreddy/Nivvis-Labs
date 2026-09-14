@@ -1,0 +1,168 @@
+/* Enterprise Header & Navigation - Phase 11.3 */
+
+.enterprise-header-wrapper {
+  position: relative;
+  z-index: 1030;
+}
+
+.enterprise-navbar {
+  transition:
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+  min-height: 72px;
+  background-color: var(--color-surface) !important;
+}
+
+.enterprise-navbar.scrolled {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.enterprise-nav-link {
+  color: var(--color-text-secondary) !important;
+  font-size: var(--text-body);
+  transition: color var(--transition-fast);
+  padding: 0.5rem 0 !important;
+  position: relative;
+  text-decoration: none;
+}
+
+.enterprise-nav-link:hover,
+.enterprise-nav-link:focus-visible {
+  color: var(--color-primary) !important;
+}
+
+.enterprise-nav-link.active {
+  color: var(--color-primary) !important;
+  font-weight: var(--font-weight-semibold) !important;
+}
+
+.enterprise-nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 1px;
+}
+
+.enterprise-nav-cta {
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+  text-decoration: none;
+}
+
+.enterprise-nav-cta:hover {
+  background-color: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
+}
+
+/* Brand Lockup & Responsive Sizing */
+.enterprise-brand {
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.brand-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: height var(--transition-fast);
+}
+
+.brand-wordmark {
+  height: 18px;
+  max-width: 275px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 1;
+  transition:
+    height var(--transition-fast),
+    max-width var(--transition-fast);
+}
+
+.enterprise-mobile-toggle {
+  flex-shrink: 0;
+}
+
+.enterprise-mobile-toggle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Responsive Mobile Navigation - Phase 11.3B */
+@media (max-width: 575.98px) {
+  .enterprise-navbar {
+    min-height: 64px;
+  }
+  .enterprise-brand {
+    margin-right: 0.5rem !important;
+  }
+  .brand-logo {
+    height: 30px;
+  }
+  .brand-wordmark {
+    height: 14px;
+    max-width: 175px;
+  }
+  .enterprise-mobile-toggle {
+    padding: 0.25rem 0.5rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .enterprise-brand {
+    margin-right: 0.25rem !important;
+  }
+  .brand-logo {
+    height: 26px;
+  }
+  .brand-wordmark {
+    height: 12px;
+    max-width: 135px;
+    margin-left: 0.25rem !important;
+  }
+  .enterprise-mobile-toggle {
+    padding: 0.25rem 0.375rem !important;
+  }
+}
+
+.enterprise-mobile-link {
+  color: var(--color-text-primary) !important;
+  text-decoration: none;
+  padding: 0.5rem 0 !important;
+  transition: color var(--transition-fast);
+}
+
+.enterprise-mobile-link:hover,
+.enterprise-mobile-link:focus-visible {
+  color: var(--color-primary) !important;
+}
+
+/* Backward compatibility aliases if needed */
+.nivvis-nav-link {
+  color: var(--color-text-secondary) !important;
+  transition: color var(--transition-fast);
+}
+.nivvis-nav-link:hover,
+.nivvis-nav-link:focus-visible {
+  color: var(--color-primary) !important;
+}
+.nivvis-nav-link.active {
+  color: var(--color-primary) !important;
+  font-weight: var(--font-weight-semibold) !important;
+}
+
+/* Footer Link Hover Enhancement */
+.enterprise-footer .link-nivvis {
+  transition: color var(--transition-fast);
+}
+
+.enterprise-footer .link-nivvis:hover {
+  color: var(--color-primary) !important;
+  text-decoration: underline;
+}
