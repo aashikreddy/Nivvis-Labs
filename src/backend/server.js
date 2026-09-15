@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 const app = express();
+app.set("trust proxy", 1);
 const PORT =
   process.env.BACKEND_PORT ||
   (process.env.PORT && process.env.PORT !== "3000" ? process.env.PORT : 8000);
@@ -47,6 +48,10 @@ const escapeHtml = (str) =>
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
 
 app.post("/send-email", contactRateLimiter, async (req, res) => {
   const payload = req.body;
